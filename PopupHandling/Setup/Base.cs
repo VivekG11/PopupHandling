@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using log4net;
 
 namespace PopupHandling
 {
@@ -9,6 +10,8 @@ namespace PopupHandling
     {
         public string url = "http://the-internet.herokuapp.com/javascript_alerts";
         public IWebDriver driver;
+
+        
 
         [SetUp]
         public void StartBrowser()

@@ -9,7 +9,7 @@ namespace PopupHandling
     public class BaseClass
     {
         public string url = "http://the-internet.herokuapp.com/javascript_alerts";
-        public IWebDriver driver;
+        public static IWebDriver driver;
 
         
 

@@ -3,7 +3,10 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.IO;
+using System.Reflection;
 using System;
+using log4net.Config;
 using log4net;
 using System.Collections.Generic;
 
@@ -12,14 +15,14 @@ namespace log4netSample
     public class logging
     {
         public static ILog logger = LogManager.GetLogger(typeof(logging));
+        public IWebDriver driver;
 
-      //  public static IWebDriver driver;
-
-       // public static string url = "http://the-internet.herokuapp.com/javascript_alerts";
-
-        public static void testAlertPopup()
+        public  void testAlertPopup()
         {
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
+            var log = LogManager.GetRepository(Assembly.GetEntryAssembly());
+
+            XmlConfigurator.Configure(log, new FileInfo("log4net.config"));
 
             String button_xpath = "//button[.='Click for JS Alert']";
 
@@ -45,9 +48,12 @@ namespace log4netSample
             if (clickResult.Text == "You successfuly clicked an alert")
             {
                 logger.Info("Alert Test Successful");
+                Console.WriteLine("Alert Test Successfull");
             }
             String WindowHandle1 = driver.CurrentWindowHandle;
             logger.Info("CurrentWindow ID is " + WindowHandle1);
+
+           
         }
 
     }

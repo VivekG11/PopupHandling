@@ -8,7 +8,8 @@ namespace log4netSample
         {
             Console.WriteLine("Basic Log4net program...");
 
-            logging.testAlertPopup();
+            logging log = new logging();
+            log.testAlertPopup();
 
         }
     }

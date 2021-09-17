@@ -14,9 +14,25 @@ namespace PopupHandling
        [Test]
        public void TestAlertPopup()
         {
-
+            Functions.Action.Alertpopup();
         }
 
+        [Test]
+        public void TestConfirmPopup()
+        {
+            Functions.Action.confirmpopup();
+        }
 
+        [Test]
+        public void TestDismissPopup()
+        {
+            Functions.Action.dismisspopup();
+        }
+
+        [Test]
+        public void TestPromptPopup()
+        {
+            Functions.Action.Promptpopup();
+        }
     }
 }
